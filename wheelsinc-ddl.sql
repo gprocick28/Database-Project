@@ -50,6 +50,8 @@ create table sales
      sticker_price         decimal(9, 2),
      final_price           decimal(9, 2),
      VIN                   char(17),
+     employee_ID           char(5),
      primary key (transaction_number),
-     foreign key (VIN) references vehicles (VIN)
+     foreign key (VIN) references vehicles (VIN),
+     foreign key (employee_ID) references employees (employee_ID)
     );
