@@ -2,8 +2,8 @@
 // this function creates the php connection. i tested it and it works
 function create_connection()
         {
-        $username = "nmanouso";
-        $password = "T82Xhmmz";
+        $username = "";
+        $password = "";
         $server = "localhost";
 
         // connection
