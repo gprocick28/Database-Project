@@ -38,7 +38,11 @@ else {
         // Gets the make from the form
         $vehicleMake = $_GET["make"]; 
         $sql = "SELECT * FROM vehicles where make='$vehicleMake'";
-        $result = $conn->query($sql);
+        $sqlStatement = $conn->prepare($sql);
+        $sqlStatement->bind_param("s", $vehicleMake);
+        $sqlStatement->execute();
+        $result = $sqlStatement->get_result();
+        $sqlStatement->close();
     } else {
         echo "<b>Please enter a vehicle make</b>";
     }
