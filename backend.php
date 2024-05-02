@@ -36,7 +36,7 @@ function placeholder($connection)
         echo "code here\n";
 }
 
-// this function is not quite done. clsoe to what he has on the slides
+// this function is not quite done. close to what he has on the slides
 function get_names($connection)
 {
         // return result for the if_empty()
@@ -45,7 +45,7 @@ function get_names($connection)
         if (result == 0)
         {
                 $name = $_GET("name_id")
-                $sql_query = "brandon i need you to take care of this part";
+                $sql_query = "SELECT * FROM customers WHERE first_name = ?";
                 $sql_statement = connection->prepare(sql_statement);
                 $sql_statement->bind_param("s", $name);
                 $sql_statement->execute();
