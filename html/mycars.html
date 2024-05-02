@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mycars</title>
+    <title>My Cars</title>
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="mycars.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -37,7 +37,7 @@
                         </div>
                         <div class='card-body'>
                             <div class="container">
-                                <div class="carbox">
+                                <div class='carbox'>
                                     <h2>Civic</h2>
                                     <img src="media/car1.jpg" class="car">
                                     <a>Remove</a>
@@ -69,18 +69,22 @@
                                 </div>
                             </div>
                             <br>
+                            
+                            <!-- New Upload Function (NO PHP) -->
                             <div class='card'>
                                 <div class='card-header'>
-                                    <h1>Services</h1>
+                                    <h2>Add a New Car</h2>
                                 </div>
                                 <div class='card-body'>
-                                    <div class="carbox">
-                                        <h2>Civic</h2>
-                                        <img src="media/car1.jpg" class="car">
-                                        <a>Cancel</a>
-                                        <h3>Service:</h3>
-                                    </div>
-                                    </div>
+                                    <form action="backend.php" method="post" enctype="multipart/form-data">
+                                        <label for="car-name">Car Name:</label>
+                                        <input type="text" id="car-name" name="car_name" required>
+
+                                        <label for="file">Upload Car Photo:</label>
+                                        <input type="file" id="file" name="file" accept="image/*" required>
+
+                                        <input type="submit" value="Add Car">
+                                    </form>
                                 </div>
                             </div>
                         </div>

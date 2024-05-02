@@ -19,10 +19,25 @@ function create_connection()
 
         return $new_connection;
 }
+
 // if we need prices it goes here. might need to pass in a variable argument to the funcion but idk
-function get_prices()
+function get_prices($connection)
 {
-        echo "sql command for car prices goes here\n";
+    $sql_query = "SELECT name, price FROM cars";  // Assuming a "cars" table with "name" and "price" columns
+
+    $result = $connection->query($sql_query);
+
+    if ($result->num_rows > 0)
+    {
+        while ($row = $result->fetch_assoc())
+        {
+            echo "Car: " . $row['name'] . " - Price: " . $row['price'] . "<br>";
+        }
+    }
+    else
+    {
+        echo "No cars found.<br>";
+    }
 }
 // for car inputs and shit
 function get_stock()
@@ -39,23 +54,43 @@ function placeholder($connection)
 // this function is not quite done. clsoe to what he has on the slides
 function get_names($connection)
 {
-        // return result for the if_empty()
-        $result = 0;
-        result = ifempty($_GET["name_id"]);
-        if (result == 0)
+    // Check if "name_id" is passed in the query parameters
+    if (isset($_GET['name_id']))
+    {
+        $name_id = $_GET['name_id'];
+
+        // SQL query to fetch car names (modify as needed)
+        $sql_query = "SELECT name FROM cars WHERE id = ?";  // Assuming a "cars" table with a "name" column
+
+        $sql_statement = $connection->prepare($sql_query);
+        $sql_statement->bind_param("i", $name_id);  // Assuming the ID is an integer
+
+        $sql_statement->execute();
+        $query_result = $sql_statement->get_result();
+
+        // Fetch and display the names
+        while ($row = $query_result->fetch_assoc())
         {
-                $name = $_GET("name_id")
-                $sql_query = "brandon i need you to take care of this part";
-                $sql_statement = connection->prepare(sql_statement);
-                $sql_statement->bind_param("s", $name);
-                $sql_statement->execute();
-                $query_result = $sql_statement->get_result();
-                $sql_statement->close();
+            echo $row['name'] . "<br>";
         }
-        return;
+
+        $sql_statement->close();
+    }
+    else
+    {
+        echo "No 'name_id' provided.<br>";
+    }
 }
+
 // this is where we will have all of our driver code
 placeholder();
-$connection = create_connection();
+$connection = create_connection();  // Create a connection
+
+// Example function calls:
+get_names($connection);
+get_prices($connection);
+
+// Any other function calls as needed
+
 
 ?>
