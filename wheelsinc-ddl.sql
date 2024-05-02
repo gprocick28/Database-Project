@@ -8,7 +8,7 @@ create table customers
      state           char(2),
      postal_code     varchar(5),
      phone_number    varchar(15),
-     email           varchar(20),
+     email           varchar(50),
      primary key (customer_ID)
     );
 
@@ -35,7 +35,7 @@ create table employees
 
 create table services
     (service_ID      char(5),
-     service_type     varchar(20),
+     service_type    varchar(20),
      service_cost    decimal(8, 2),
      service_date    date,
      VIN             char(17),
@@ -61,7 +61,7 @@ create table users
     (username       varchar(20),
      password       varchar(20),
      is_employee    boolean,
-     ID             char(5),
+     id             char(5),
      primary key (username)
     );
 
