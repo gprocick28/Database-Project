@@ -49,7 +49,7 @@
                 <input type="tel" id="phone" name="phone" required>
             </div>
             <button type="submit">Sign Up</button>
-            <p>Already have an account? <a href="login.html">Login here</a></p>
+            <p>Already have an account? <a href="login.php">Login here</a></p>
         </form>
     </div>
 </body>
