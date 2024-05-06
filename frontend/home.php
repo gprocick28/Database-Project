@@ -13,14 +13,14 @@
     <div class="dashboard-nav">
         <header>
             <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-            <a href="#" class="brand-logo"><i class="fas fa-car"></i> <span>CARDEALER</span></a>
+            <a href="#" class="brand-logo"><i class="fas fa-car"></i> <span>Wheels Inc.</span></a>
         </header>
         <nav class="dashboard-nav-list">
             <a href="home.php" class="dashboard-nav-item active"><i class="fas fa-home"></i> Home</a>
             <a href="mycars.php" class="dashboard-nav-item"><i class="fas fa-car"></i> My Cars</a>
             <a href="employee.php" class="dashboard-nav-item"><i class="fas fa-user"></i> Employee</a>
             <div class="nav-item-divider"></div>
-            <a href="login.php" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="logout.php" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </nav>
     </div>
     <div class='dashboard-app'>
@@ -39,7 +39,7 @@
                         <div class="container">
 
                             <?php // Cards to display cars created here
-                                include "/users/kent/student/bjennin4/config.php";
+                                include "/users/kent/student/gprocick/config.php";
 
                                 // Create connection
                                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -48,7 +48,7 @@
                                     die("Connection failed: " . $conn->connect_error);
                                 }
 
-                                $sql = "SELECT * FROM vehicles";
+                                $sql = "SELECT * FROM available_vehicles";
                                 $result = $conn->query($sql);
 
                                 $imageNum = 1;
@@ -60,7 +60,7 @@
                                         echo "<div class='carbox'>"; // Begins carbox
 
                                         // Car info
-                                        echo "<h2>" . $row["make"] . "</h2>";
+                                        echo "<h2>" . $row["Make"] . "</h2>";
 
                                         // Temp until images are actually in the DB
                                         echo "<img src='media/car" . $imageNum . ".jpg' class='car'>";

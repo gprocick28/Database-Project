@@ -13,7 +13,7 @@
     <div class="dashboard-nav">
         <header>
             <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-            <a href="#" class="brand-logo"><i class="fas fa-car"></i> <span>CARDEALER</span></a>
+            <a href="#" class="brand-logo"><i class="fas fa-car"></i> <span>Wheels Inc.</span></a>
         </header>
         <nav class="dashboard-nav-list">
             <a href="home.php" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>

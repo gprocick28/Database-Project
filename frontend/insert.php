@@ -9,7 +9,7 @@
 
 <?php // Inserts cars into the database
 
-    include "/users/kent/student/bjennin4/config.php";
+    include "/users/kent/student/gprocick/config.php";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -32,6 +32,7 @@
     $year = $_REQUEST['year'];
     $color = $_REQUEST['color'];
     $mileage = $_REQUEST['mileage'];
+    $price = $_REQUEST['price'];
     $customer_ID = 'NULL';
 
     $sql = "INSERT INTO `vehicles` VALUES ('" 
@@ -40,11 +41,13 @@
         "', '" . $model . 
         "', '" . $year . 
         "', '" . $color . 
-        "', '" . $mileage . 
+        "', '" . $mileage .
+        "','"  . $price .
         "', " . $customer_ID . ")";
 
 
     if ($conn->query($sql) === TRUE) {
+        header("location: employee.php");
         echo "Car added successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
