@@ -70,7 +70,7 @@
                                         // Pricing
                                             // Style should be taken out of this line
                                             // Price needs implemented in the DB
-                                        echo "<h3 style='margin-top:10px'>Price: $$$</h3>";
+                                        echo "<h3 style='margin-top:10px'>Price:</h3>" . $row["Price"];
 
                                         echo "</div>"; // Ends carbox
                                         // Print all data in table
