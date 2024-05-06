@@ -73,8 +73,8 @@ create view owned_vehicles(OwnerID, VIN, Make, Model, Year, Color) as
     from    customers, vehicles
     where   customers.customer_ID = vehicles.customer_ID;
 
-create view available_vehicles(VIN, Make, Model, Year, Color) as
-    select  vehicles.VIN, vehicles.make, vehicles.model, vehicles.year, vehicles.color
+create view available_vehicles(VIN, Make, Model, Year, Color, Price) as
+    select  vehicles.VIN, vehicles.make, vehicles.model, vehicles.year, vehicles.color, vehicles.price
     from    vehicles
     where   vehicles.customer_ID is NULL;
 
