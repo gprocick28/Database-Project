@@ -60,7 +60,8 @@
                                         echo "<div class='carbox'>"; // Begins carbox
 
                                         // Car info
-                                        echo "<h2>" . $row["Make"] . "</h2>";
+                                        echo "<h2>" . $row["Make"] . " " . $row["Model"] ."</h2>";
+                                        echo "<body>" . $row["Mileage"] . " Miles <body>";
 
                                         // Temp until images are actually in the DB
                                         echo "<img src='media/car" . $imageNum . ".jpg' class='car'>";
@@ -70,7 +71,7 @@
                                         // Pricing
                                             // Style should be taken out of this line
                                             // Price needs implemented in the DB
-                                        echo "<h3 style='margin-top:10px'>Price:</h3>" . $row["Price"];
+                                        echo "<h3 style='margin-top:10px'>$" . $row["Price" ] . "</h3>";
 
                                         echo "</div>"; // Ends carbox
                                         // Print all data in table
