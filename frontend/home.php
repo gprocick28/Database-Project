@@ -16,11 +16,11 @@
             <a href="#" class="brand-logo"><i class="fas fa-car"></i> <span>CARDEALER</span></a>
         </header>
         <nav class="dashboard-nav-list">
-            <a href="home.html" class="dashboard-nav-item active"><i class="fas fa-home"></i> Home</a>
-            <a href="mycars.html" class="dashboard-nav-item"><i class="fas fa-car"></i> My Cars</a>
-            <a href="employee.html" class="dashboard-nav-item"><i class="fas fa-user"></i> Employee</a>
+            <a href="home.php" class="dashboard-nav-item active"><i class="fas fa-home"></i> Home</a>
+            <a href="mycars.php" class="dashboard-nav-item"><i class="fas fa-car"></i> My Cars</a>
+            <a href="employee.php" class="dashboard-nav-item"><i class="fas fa-user"></i> Employee</a>
             <div class="nav-item-divider"></div>
-            <a href="login.html" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="login.php" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </nav>
     </div>
     <div class='dashboard-app'>
@@ -34,37 +34,53 @@
                         <h1>Avaliable Vehicles</h1>
                     </div>
                     <div class='card-body'>
+                        <!-- Car containter -->
+                        <!-- Dynamically generates car info -->
                         <div class="container">
-                            <div class="carbox">
-                                <h2>Civic</h2>
-                                <img src="media/car1.jpg" class="car">
-                                <a>Buy</a>
-                                <h3 style="margin-top:10px">Price: $$$</h3>
-                            </div>
-                            <div class="carbox">
-                                <h2>Accord</h2>
-                                    <img src="media/car2.jpeg" class="car">
-                                <a>Buy</a>
-                                <h3 style="margin-top:10px">Price: $$$</h3>
-                            </div>
-                            <div class="carbox">
-                                <h2>Cavalier</h2>
-                                <img src="media/car3.jpg" class="car">
-                                <a>Buy</a>
-                                <h3 style="margin-top:10px">Price: $$$</h3>
-                            </div>
-                            <div class="carbox">
-                                <h2>Chevy</h2>
-                                <img src="media/car4.jpg" class="car">
-                                <a>Buy</a>
-                                <h3 style="margin-top:10px">Price: $$$</h3>
-                            </div>
-                            <div class="carbox">
-                                <h2>Lambo</h2>
-                                <img src="media/car5.jpg" class="car">
-                                <a>Buy</a>
-                                <h3>Price: $$$</h3>
-                            </div>
+
+                            <?php // Cards to display cars created here
+                                include "/users/kent/student/bjennin4/config.php";
+
+                                // Create connection
+                                $conn = new mysqli($servername, $username, $password, $dbname);
+                                // Check connection
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
+
+                                $sql = "SELECT * FROM vehicles";
+                                $result = $conn->query($sql);
+
+                                $imageNum = 1;
+
+                                if ($result->num_rows > 0) {
+                                // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        // echo "VIN: " . $row["VIN"]. " - Make: " . $row["make"]. " - Model: " . $row["model"]. "<br>";
+                                        echo "<div class='carbox'>"; // Begins carbox
+
+                                        // Car info
+                                        echo "<h2>" . $row["make"] . "</h2>";
+
+                                        // Temp until images are actually in the DB
+                                        echo "<img src='media/car" . $imageNum . ".jpg' class='car'>";
+                                        $imageNum += 1;
+
+                                        echo "<a>Buy</a>";
+                                        // Pricing
+                                            // Style should be taken out of this line
+                                            // Price needs implemented in the DB
+                                        echo "<h3 style='margin-top:10px'>Price: $$$</h3>";
+
+                                        echo "</div>"; // Ends carbox
+                                        // Print all data in table
+                                    }
+                                } else {
+                                    echo "0 results";
+                                }
+                                $conn->close();
+                            ?>
+
                        </div>
                     </div>
                 </div>

@@ -16,11 +16,11 @@
             <a href="#" class="brand-logo"><i class="fas fa-car"></i> <span>CARDEALER</span></a>
         </header>
         <nav class="dashboard-nav-list">
-            <a href="home.html" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>
-            <a href="mycars.html" class="dashboard-nav-item"><i class="fas fa-car"></i> My Cars</a>
-            <a href="employee.html" class="dashboard-nav-item active"><i class="fas fa-user"></i> Employee</a>
+            <a href="home.php" class="dashboard-nav-item"><i class="fas fa-home"></i> Home</a>
+            <a href="mycars.php" class="dashboard-nav-item"><i class="fas fa-car"></i> My Cars</a>
+            <a href="employee.php" class="dashboard-nav-item active"><i class="fas fa-user"></i> Employee</a>
             <div class="nav-item-divider"></div>
-            <a href="login.html" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="login.php" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </nav>
     </div>
     <div class='dashboard-app'>
@@ -35,56 +35,84 @@
                     </div>
                     <div class='card-body'>
                         <div class="box">
+
+                            <!-- Vehicle creation form -->
                             <h2>Order Vehicle</h2>
-                            <div class="input-group">
-                                <label for="state">Make</label>
-                                <select id="state" name="state" required>
-                                    <option value="" disabled selected>Select the make</option>
-                                    <option value="AL">Honda</option>
-                                    <option value="AK">Ford</option>
-                                    <option value="AZ">Chevy</option>
-                                    <!-- Add more options for other states -->
-                                </select>
-                            </div>
-                            <div class="input-group">
-                            <label for="state">Model</label>
-                            <select id="state" name="state" required>
-                                <option value="" disabled selected>Select the model</option>
-                                <option value="AL">Accord</option>
-                                <option value="AK">Raptor</option>
-                                <option value="AZ">Cavalier</option>
-                                <!-- Add more options for other states -->
-                            </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="state">Year</label>
-                                <select id="state" name="state" required>
-                                    <option value="" disabled selected>Select the year</option>
-                                    <option value="AL">2003</option>
-                                    <option value="AK">2004</option>
-                                    <option value="AZ">2005</option>
-                                    <!-- Add more options for other states -->
-                                </select>
-                            <div class="input-group">
-                                <label for="username">Price</label>
-                                <input type="text" id="username" name="username" required>
-                        </div>
-                        <button class="button-7" role="button">Add</button>
-                        </div>
-                        </div>
+                            <form action="insert.php" method="post">                               
+                                <div class="input-group">
+                                    <label for="VIN">Input the VIN:</label>
+                                    <input type="text" pattern="[A-HJ-NPR-Z0-9]{17}" name="VIN" id="VIN">
+                                </div>
                         
+                                    
+                                <div class="input-group">
+                                    <label for="make">Make:</label>
+                                    <select id="make" name="make" required>
+                                    <option value="" disabled selected>Select the make</option>
+                                        <option value="Honda">Honda</option>
+                                        <option value="Ford">Ford</option>
+                                        <option value="Chevy">Chevy</option>
+                                        <!-- Add more options for other makes -->
+                                    </select>
+                                </div>
+                        
+                                    
+                                <div class="input-group">
+                                    <label for="model">Model:</label>
+                                    <select id="model" name="model" required>
+                                        <option value="" disabled selected>Select the model</option>
+                                        <option value="Accord">Accord</option>
+                                        <option value="Raptor">Raptor</option>
+                                        <option value="Cavalier">Cavalier</option>
+                                        <!-- Add more options for other models -->
+                                    </select>
+                                </div>
+                        
+                                    
+                                <div class="input-group">
+                                    <label for="year">Year:</label>
+                                    <select id="year" name="year" required>
+                                        <option value="" disabled selected>Select the year</option>
+                                        <option value="2003">2003</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2005">2005</option>
+                                        <!-- Add more options for other years -->
+                                    </select>
+                                </div>
+                        
+                                    
+                                <div class="input-group">
+                                    <label for="price">Price:</label>
+                                    <input type="number" id="price" name="price" required>
+                                </div>
+
+
+                                <div class="input-group">
+                                    <label for="mileage">Mileage:</label>
+                                    <input type="number" id="mileage" name="mileage" required>
+                                </div>
+                        
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
                     </div>
+
+
+                    <!-- Employee insert -->
+                    <!-- Not implemented -->
                     <div class='card-body'>
                         <div class="box">
                             <h2>Add Employee</h2>
                             <div class="input-group">
                                 <label for="username">Username</label>
                                 <input type="text" id="username" name="username" required>
-                                <!-- HTML !-->
                                 <button class="button-7" role="button">Add</button>
                             </div>
-                            <br><h3>Employee List:</h3>
-                            None.
+                            <br>
+                            <h3>Employee List:</h3>
+                            <p>None.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

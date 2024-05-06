@@ -16,11 +16,11 @@
             <a href="#" class="brand-logo"><i class="fas fa-car"></i> <span>CARDEALER</span></a>
         </header>
         <nav class="dashboard-nav-list">
-            <a href="home.html" class="dashboard-nav-item active"><i class="fas fa-home"></i> Home</a>
-            <a href="mycars.html" class="dashboard-nav-item"><i class="fas fa-car"></i> My Cars</a>
-            <a href="employee.html" class="dashboard-nav-item"><i class="fas fa-user"></i> Employee</a>
+            <a href="home.php" class="dashboard-nav-item active"><i class="fas fa-home"></i> Home</a>
+            <a href="mycars.php" class="dashboard-nav-item"><i class="fas fa-car"></i> My Cars</a>
+            <a href="employee.php" class="dashboard-nav-item"><i class="fas fa-user"></i> Employee</a>
             <div class="nav-item-divider"></div>
-            <a href="login.html" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="login.php" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </nav>
     </div>
     <div class='dashboard-app'>
