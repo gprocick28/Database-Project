@@ -51,21 +51,20 @@
                                     <option value="" disabled selected>Select the make</option>
                                         <option value="Honda">Honda</option>
                                         <option value="Ford">Ford</option>
-                                        <option value="Chevy">Chevy</option>
+                                        <option value="Chevrolet">Chevrolet</option>
+                                        <option value="Kia">Kia</option>
+                                        <option value="Volkswagon">Volkswagon</option>
+                                        <option value="Toyota">Toyota</option>
+                                        <option value="Jeep">Jeep</option>
+                                        <option value="Hyundai">Hyundai</option>
                                         <!-- Add more options for other makes -->
                                     </select>
                                 </div>
                         
                                     
                                 <div class="input-group">
-                                    <label for="model">Model:</label>
-                                    <select id="model" name="model" required>
-                                        <option value="" disabled selected>Select the model</option>
-                                        <option value="Accord">Accord</option>
-                                        <option value="Raptor">Raptor</option>
-                                        <option value="Cavalier">Cavalier</option>
-                                        <!-- Add more options for other models -->
-                                    </select>
+                                    <label for="model">Input Model:</label>
+                                    <input type="text" name="model" id="model">
                                 </div>
                         
                                     
@@ -73,9 +72,32 @@
                                     <label for="year">Year:</label>
                                     <select id="year" name="year" required>
                                         <option value="" disabled selected>Select the year</option>
+                                        <option value="2000">2000</option>
+                                        <option value="2001">2001</option>
+                                        <option value="2002">2002</option>
                                         <option value="2003">2003</option>
                                         <option value="2004">2004</option>
                                         <option value="2005">2005</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
                                         <!-- Add more options for other years -->
                                     </select>
                                 </div>

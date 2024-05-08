@@ -64,7 +64,8 @@
                                         echo "<body>" . $row["Mileage"] . " Miles <body>";
 
                                         // Temp until images are actually in the DB
-                                        echo "<img src='media/car" . $imageNum . ".jpg' class='car'>";
+                                        $filename = strtolower($row["Make"]) . '.png';
+                                        echo "<img src= $filename class='car'>";
                                         $imageNum += 1;
 
                                         echo "<a>Buy</a>";
