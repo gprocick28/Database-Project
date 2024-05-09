@@ -61,7 +61,7 @@
                                     </select>
                                 </div>
                         
-                                    
+
                                 <div class="input-group">
                                     <label for="model">Input Model:</label>
                                     <input type="text" name="model" id="model">

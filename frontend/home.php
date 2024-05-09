@@ -31,7 +31,7 @@
             <div class='container'>
                 <div class='card'>
                     <div class='card-header'>
-                        <h1>Avaliable Vehicles</h1>
+                        <h1>Available Vehicles</h1>
                     </div>
                     <div class='card-body'>
                         <!-- Car containter -->
@@ -48,10 +48,8 @@
                                     die("Connection failed: " . $conn->connect_error);
                                 }
 
-                                $sql = "SELECT * FROM available_vehicles";
+                                $sql = "SELECT * FROM `vehicles` WHERE `customer_ID` IS NULL";
                                 $result = $conn->query($sql);
-
-                                $imageNum = 1;
 
                                 if ($result->num_rows > 0) {
                                 // output data of each row
@@ -60,19 +58,30 @@
                                         echo "<div class='carbox'>"; // Begins carbox
 
                                         // Car info
-                                        echo "<h2>" . $row["Make"] . " " . $row["Model"] ."</h2>";
-                                        echo "<body>" . $row["Mileage"] . " Miles <body>";
+                                        echo "<h2>" . $row["make"] . " " . $row["model"] ."</h2>";
+                                        echo "<body>" . $row["mileage"] . " Miles <body>";
 
-                                        // Temp until images are actually in the DB
-                                        $filename = strtolower($row["Make"]) . '.png';
-                                        echo "<img src= $filename class='car'>";
-                                        $imageNum += 1;
+                                        // Variables
+                                        $filename = strtolower($row["make"]) . '.png';
+                                        $customer_ID = 10003;
+                                        $VIN = $row['VIN'];
 
-                                        echo "<a>Buy</a>";
+                                        // echo "<img src= $filename class='car'>";
+                                        echo "<img src='media/$filename' class='car'>";
+
+                                        // Needs to be a form that brings customer_ID / VIN to buy.php
+                                        echo "<form method='post' action='buy.php' class='inline'>
+                                                <input type='hidden' name='VIN' value='$VIN'>
+                                                <button type='submit' name='customer_ID' value='$customer_ID' class='link-button'>
+                                                    Buy
+                                                </button>
+                                            </form>";
+
+
                                         // Pricing
                                             // Style should be taken out of this line
                                             // Price needs implemented in the DB
-                                        echo "<h3 style='margin-top:10px'>$" . $row["Price" ] . "</h3>";
+                                        echo "<h3 style='margin-top:10px'>$" . $row["price" ] . "</h3>";
 
                                         echo "</div>"; // Ends carbox
                                         // Print all data in table

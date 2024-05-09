@@ -37,36 +37,79 @@
                         </div>
                         <div class='card-body'>
                             <div class="container">
+                        
+                                <!-- Printing each car tied to logged in user -->
+                                <?php
+                                    include "/users/kent/student/bjennin4/config.php";
+
+                                    // Create connection
+                                    $conn = new mysqli($servername, $username, $password, $dbname);
+                                    
+                                    // Check connection
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    }
+
+                                    // Needs to be replaced by actual user_ID when logged in, or nothing when not
+                                    $loggedInID = 10003;
+                                    
+                                    // Selects all cars that match the logged in ID
+                                    $sql = "SELECT * FROM `vehicles` WHERE `customer_ID` = $loggedInID";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                    // output data of each row
+                                        while($row = $result->fetch_assoc()) {
+
+                                            // Starts carbox for each car
+                                            echo "<div class='carbox'>";
+
+                                            // Print all data in table
+                                            foreach ($row as $key => $value) {
+                                                echo $key . ": " . $value . "<br>";
+                                            }
+                                            
+                                            // Ends carbox
+                                            echo "</div>"; 
+                                        }
+                                    } else {
+                                        echo "0 results";
+                                    }
+                                    $conn->close();
+                                ?>
+
+                                <!-- All of these will be deleted when cars are dynamically generated -->
                                 <div class="carbox">
                                     <h2>Civic</h2>
                                     <img src="media/car1.jpg" class="car">
-                                    <a>Remove</a>
+                                    <a>Sell</a>
                                     <a href="service.html">Service</a>
                                 </div>
                                 <div class="carbox">
                                     <h2>Accord</h2>
                                     <img src="media/car2.jpeg" class="car">
-                                    <a>Remove</a>
+                                    <a>Sell</a>
                                     <a href="service.html">Service</a>
                                 </div>
                                 <div class="carbox">
                                     <h2>Cavalier</h2>
                                     <img src="media/car3.jpg" class="car">
-                                    <a>Remove</a>
+                                    <a>Sell</a>
                                     <a href="service.html">Service</a>
                                 </div>
                                 <div class="carbox">
                                     <h2>Chevy</h2>
                                     <img src="media/car4.jpg" class="car">
-                                    <a>Remove</a>
+                                    <a>Sell</a>
                                     <a href="service.html">Service</a>
                                 </div>
                                 <div class="carbox">
                                     <h2>Lambo</h2>
                                     <img src="media/car5.jpg" class="car">
-                                    <a>Remove</a>
+                                    <a>Sell</a>
                                     <a href="service.html">Service</a>
                                 </div>
+                                <!-- ---------------------------- -->
                             </div>
                             <br>
                             <div class='card'>
@@ -80,31 +123,31 @@
                                         <a>Cancel</a>
                                         <h3>Service:</h3>
                                     </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-                $(document).ready(function () {
-                    $(".dashboard-nav-dropdown-toggle").click(function () {
-                        $(this).closest(".dashboard-nav-dropdown")
-                            .toggleClass("show")
-                            .find(".dashboard-nav-dropdown")
-                            .removeClass("show");
-                        $(this).parent()
-                            .siblings()
-                            .removeClass("show");
-                    });
-                    $(".menu-toggle").click(function () {
-                        $(".dashboard").toggleClass("dashboard-compact");
-                    });
-                });
-            </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dashboard-nav-dropdown-toggle").click(function () {
+                $(this).closest(".dashboard-nav-dropdown")
+                    .toggleClass("show")
+                    .find(".dashboard-nav-dropdown")
+                    .removeClass("show");
+                $(this).parent()
+                    .siblings()
+                    .removeClass("show");
+            });
+            $(".menu-toggle").click(function () {
+                $(".dashboard").toggleClass("dashboard-compact");
+            });
+        });
+    </script>
 </body>
 
 </html>
