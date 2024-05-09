@@ -118,21 +118,66 @@
                             </form>
                         </div>
                     </div>
-
-
-                    <!-- Employee insert -->
-                    <!-- Not implemented -->
+                </div>
+            </div>
+        </div>
+        <div class='dashboard-content'>
+            <div class='container-2'>
+                <div class='card'>
+                    <div class='card-header'>
+                        <h1>Vehicles</h1>
+                    </div>
                     <div class='card-body'>
-                        <div class="box">
-                            <h2>Add Employee</h2>
-                            <div class="input-group">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" name="username" required>
-                                <button class="button-7" role="button">Add</button>
-                            </div>
-                            <br>
-                            <h3>Employee List:</h3>
-                            <p>None.</p>
+                        <!-- Car containter -->
+                        <!-- Dynamically generates car info -->
+                        <div class="container-2">
+
+                            <?php // Cards to display cars created here
+                                include "/users/kent/student/bjennin4/config.php";
+
+                                // Create connection
+                                $conn = new mysqli($servername, $username, $password, $dbname);
+                                // Check connection
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
+
+                                $sql = "SELECT * FROM `vehicles`";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<div class='carbox'>"; // Begins carbox
+
+                                        // Car info
+                                        echo "<h2>" . $row["make"] . " " . $row["model"] ."</h2>";
+                                        echo "<body>" . $row["mileage"] . " Miles <body>";
+
+                                        // Variables
+                                        $filename = strtolower($row["make"]) . '.png';
+                                        $VIN = $row['VIN'];
+
+                                        // echo "<img src= $filename class='car'>";
+                                        echo "<img src='media/$filename' class='car'>";
+
+                                        echo "<form method='post' action='delete.php' class='inline'>
+                                                <button type='submit' name='VIN' value='$VIN' class='link-button'>
+                                                    Delete
+                                                </button>
+                                            </form>";
+
+                                        // Pricing
+                                            // Style should be taken out of this line
+                                        echo "<h3 style='margin-top:10px'>$" . $row["price"] . "</h3>";
+
+                                        echo "</div>"; // Ends carbox
+                                    }
+                                } else {
+                                    echo "0 cars in database";
+                                }
+                                $conn->close();
+                            ?>
                         </div>
                     </div>
                 </div>

@@ -32,6 +32,7 @@
 
     $conn->close();
 ?>
+<a href="home.php">Return to Home Page</a>
 
 </body>
 </html>
