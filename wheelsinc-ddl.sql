@@ -1,5 +1,14 @@
+create table users
+    (username       varchar(20),
+     password       varchar(255),
+     is_employee    boolean,
+     id             int AUTO_INCREMENT,  -- was a char(5)
+     primary key (id)
+    );
+
 create table customers
-    (customer_ID     char(5),
+    (customer_ID     char(5) UNIQUE,
+     id              int AUTO_INCREMENT,  -- was a char(5),
      first_name      varchar(20),
      middle_initial  char(1),
      last_name       varchar(20),
@@ -8,8 +17,9 @@ create table customers
      state           char(2),
      postal_code     varchar(5),
      phone_number    varchar(15),
-     email           varchar(20),
-     primary key (customer_ID)
+     email           varchar(50),
+     primary key (customer_ID),
+     foreign key (id) references users (id)
     );
 
 create table vehicles
@@ -19,30 +29,31 @@ create table vehicles
      year        char(4),
      color       varchar(20),
      mileage     int(7),
+     price       decimal(9, 2),
      customer_ID char(5),
      primary key (VIN),
      foreign key (customer_ID) references customers (customer_ID)
     );
 
 create table employees
-    (employee_ID     char(5),
+    (id              int AUTO_INCREMENT,  -- was a char(5),
      first_name      varchar(20),
      middle_initial  char(1),
      last_name       varchar(20),
      role            varchar(20),
-     primary key (employee_ID)
+     primary key (id)
     );
 
 create table services
     (service_ID      char(5),
-     service_type     varchar(20),
+     service_type    varchar(20),
      service_cost    decimal(8, 2),
      service_date    date,
      VIN             char(17),
-     employee_ID     char(5),
+     id              int AUTO_INCREMENT,  -- was a char(5),
      primary key (service_ID),
      foreign key (VIN) references vehicles (VIN),
-     foreign key (employee_ID) references employees (employee_ID)
+     foreign key (id) references employees (id)
     );
 
 create table sales
@@ -51,18 +62,10 @@ create table sales
      sticker_price         decimal(9, 2),
      final_price           decimal(9, 2),
      VIN                   char(17),
-     employee_ID           char(5),
+     id                    int AUTO_INCREMENT,  -- was a char(5),
      primary key (transaction_number),
      foreign key (VIN) references vehicles (VIN),
-     foreign key (employee_ID) references employees (employee_ID)
-    );
-
-create table users
-    (username       varchar(20),
-     password       varchar(20),
-     is_employee    boolean,
-     ID             char(5),
-     primary key (username)
+     foreign key (id) references employees (id)
     );
 
 create view owned_vehicles(OwnerID, VIN, Make, Model, Year, Color) as
@@ -70,18 +73,18 @@ create view owned_vehicles(OwnerID, VIN, Make, Model, Year, Color) as
     from    customers, vehicles
     where   customers.customer_ID = vehicles.customer_ID;
 
-create view available_vehicles(VIN, Make, Model, Year, Color) as
-    select  vehicles.VIN, vehicles.make, vehicles.model, vehicles.year, vehicles.color
+create view available_vehicles(VIN, Make, Model, Year, Color, Price) as
+    select  vehicles.VIN, vehicles.make, vehicles.model, vehicles.year, vehicles.color, vehicles.price
     from    vehicles
     where   vehicles.customer_ID is NULL;
 
 create view customer_accounts(Username, ID, Name) as
-    select  users.username, users.ID, concat(customers.first_name, " ", customers.last_name)
+    select  users.username, users.id, concat(customers.first_name, " ", customers.last_name)
     from    users, customers
-    where   users.ID = customers.customer_ID AND customer_ID is not NULL;
+    where   users.id = customers.id AND customers.id is not NULL;
 
 create view employee_accounts(Username, ID, Name) as
     select  users.username, users.ID, concat(employees.first_name, " ", employees.last_name)
     from    users, employees
-    where   users.ID = employees.employee_ID AND is_employee != 0;
+    where   users.id = employees.id AND is_employee != 0;
 
