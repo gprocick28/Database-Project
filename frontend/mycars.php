@@ -68,6 +68,15 @@
                                             foreach ($row as $key => $value) {
                                                 echo $key . ": " . $value . "<br>";
                                             }
+                                        
+                                            $VIN = $row['VIN'];
+
+                                            // Makes cars no longer owned
+                                            echo "<form method='post' action='sell.php' class='inline'>
+                                                <button type='submit' name='VIN' value='$VIN' class='link-button'>
+                                                    Sell
+                                                </button>
+                                            </form>";
                                             
                                             // Ends carbox
                                             echo "</div>"; 
@@ -78,44 +87,7 @@
                                     $conn->close();
                                 ?>
 
-                                <!-- All of these will be deleted when cars are dynamically generated -->
-                                <div class="carbox">
-                                    <h2>Civic</h2>
-                                    <img src="media/car1.jpg" class="car">
-                                    <a>Sell</a>
-                                    <a href="service.html">Service</a>
-                                </div>
-                                <div class="carbox">
-                                    <h2>Accord</h2>
-                                    <img src="media/car2.jpeg" class="car">
-                                    <a>Sell</a>
-                                    <a href="service.html">Service</a>
-                                </div>
-                                <div class="carbox">
-                                    <h2>Cavalier</h2>
-                                    <img src="media/car3.jpg" class="car">
-                                    <a>Sell</a>
-                                    <a href="service.html">Service</a>
-                                </div>
-                                <div class="carbox">
-                                    <h2>Chevy</h2>
-                                    <img src="media/car4.jpg" class="car">
-                                    <a>Sell</a>
-                                    <a href="service.html">Service</a>
-                                </div>
-                                <div class="carbox">
-                                    <h2>Lambo</h2>
-                                    <img src="media/car5.jpg" class="car">
-                                    <a>Sell</a>
-                                    <a href="service.html">Service</a>
-                                </div>
-                                <!-- ---------------------------- -->
-                            </div>
-                            <br>
-                            <div class='card'>
-                                <div class='card-header'>
-                                    <h1>Services</h1>
-                                </div>
+                                
                                 <div class='card-body'>
                                     <div class="carbox">
                                         <h2>Civic</h2>

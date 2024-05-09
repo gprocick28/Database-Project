@@ -39,7 +39,7 @@
                         <div class="container">
 
                             <?php // Cards to display cars created here
-                                include "/users/kent/student/gprocick/config.php";
+                                include "/users/kent/student/bjennin4/config.php";
 
                                 // Create connection
                                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -69,7 +69,6 @@
                                         // echo "<img src= $filename class='car'>";
                                         echo "<img src='media/$filename' class='car'>";
 
-                                        // Needs to be a form that brings customer_ID / VIN to buy.php
                                         echo "<form method='post' action='buy.php' class='inline'>
                                                 <input type='hidden' name='VIN' value='$VIN'>
                                                 <button type='submit' name='customer_ID' value='$customer_ID' class='link-button'>
@@ -81,7 +80,7 @@
                                         // Pricing
                                             // Style should be taken out of this line
                                             // Price needs implemented in the DB
-                                        echo "<h3 style='margin-top:10px'>$" . $row["price" ] . "</h3>";
+                                        echo "<h3 style='margin-top:10px'>$" . $row["price"] . "</h3>";
 
                                         echo "</div>"; // Ends carbox
                                         // Print all data in table

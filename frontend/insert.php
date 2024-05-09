@@ -9,7 +9,7 @@
 
 <?php // Inserts cars into the database
 
-    include "/users/kent/student/gprocick/config.php";
+    include "/users/kent/student/bjennin4/config.php";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
