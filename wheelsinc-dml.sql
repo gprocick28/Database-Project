@@ -15,9 +15,9 @@ insert into users values ('jseinfeld', 'WHATSthed3al', 1, '6');
 insert into users values ('jgarlin', 'G0ldb3rG', 1, '7');
 
 
-insert into customers values ('00001', 1, 'Gavin', 'T', 'Procick', '5435 Main Street', 'Youngstown', 'OH', '44436', '3306543287', 'gtp567@gmail.com');
-insert into customers values ('00002', 2, 'Devon', 'M', 'Morris', '6969 Long Road', 'Canton', 'OH', '44646', '3304728653', 'tmorris69@gmail.com');
-insert into customers values ('00003', 3, 'Brandon', 'J', 'Jennings', '7542 South Avenue', 'Cleveland', 'OH', '44101', '4406541298', 'bjennings72@yahoo.com');
+insert into customers values ('10001', 1, 'Gavin', 'T', 'Procick', '5435 Main Street', 'Youngstown', 'OH', '44436', '3306543287', 'gtp567@gmail.com');
+insert into customers values ('10002', 2, 'Devon', 'M', 'Morris', '6969 Long Road', 'Canton', 'OH', '44646', '3304728653', 'tmorris69@gmail.com');
+insert into customers values ('10003', 3, 'Brandon', 'J', 'Jennings', '7542 South Avenue', 'Cleveland', 'OH', '44101', '4406541298', 'bjennings72@yahoo.com');
 
 
 insert into vehicles values ('JM1CR293590347669', 'Honda', 'Civic', '2022', 'Black', 25345, 31230.00, '00001');
