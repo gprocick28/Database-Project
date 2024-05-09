@@ -40,7 +40,7 @@
                         
                                 <!-- Printing each car tied to logged in user -->
                                 <?php
-                                    include "/users/kent/student/bjennin4/config.php";
+                                    include "/users/kent/student/gprocick/config.php";
 
                                     // Create connection
                                     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -64,10 +64,11 @@
                                             // Starts carbox for each car
                                             echo "<div class='carbox'>";
 
-                                            // Print all data in table
-                                            foreach ($row as $key => $value) {
-                                                echo $key . ": " . $value . "<br>";
-                                            }
+                                            echo "<h2>" . $row["make"] . " " . $row["model"] ."</h2>";
+
+                                        // echo "<img src= $filename class='car'>";
+                                            $filename = strtolower($row["make"]) . '.png';
+                                            echo "<img src='media/$filename' class='car'>";
                                         
                                             $VIN = $row['VIN'];
 
@@ -86,16 +87,6 @@
                                     }
                                     $conn->close();
                                 ?>
-
-                                
-                                <div class='card-body'>
-                                    <div class="carbox">
-                                        <h2>Civic</h2>
-                                        <img src="media/car1.jpg" class="car">
-                                        <a>Cancel</a>
-                                        <h3>Service:</h3>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
