@@ -90,3 +90,41 @@
     border: 1px solid #ccc;
     border-radius: 3px;
 }
+
+.container-2 {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+}
+
+.carbox {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Changed to column to stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  text-align: center;
+}
+
+
+.carbox h3 {
+  text-align: center;
+  display: block;
+  margin-top: 10px; /* Add margin-top to separate from the "Buy" button */
+}
+
+.carbox a {
+  display: block;
+  margin-top: 10px;
+}
+
+.car {
+  display: block;
+  margin: auto;
+  height: 150px;
+}

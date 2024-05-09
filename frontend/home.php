@@ -54,7 +54,6 @@
                                 if ($result->num_rows > 0) {
                                 // output data of each row
                                     while($row = $result->fetch_assoc()) {
-                                        // echo "VIN: " . $row["VIN"]. " - Make: " . $row["make"]. " - Model: " . $row["model"]. "<br>";
                                         echo "<div class='carbox'>"; // Begins carbox
 
                                         // Car info
@@ -79,7 +78,6 @@
 
                                         // Pricing
                                             // Style should be taken out of this line
-                                            // Price needs implemented in the DB
                                         echo "<h3 style='margin-top:10px'>$" . $row["price"] . "</h3>";
 
                                         echo "</div>"; // Ends carbox

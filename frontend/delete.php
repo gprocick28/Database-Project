@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <title>Sell Cars</title>
+    <title>Remove Cars</title>
 </head>
 
 <body>
 
-<?php // Removes customer associated w/ car
+<?php // Inserts cars into the database
 
     include "/users/kent/student/bjennin4/config.php";
 
@@ -21,17 +21,18 @@
     // Taking values from the form data
     $VIN = $_REQUEST['VIN'];
 
-    $sql = "UPDATE `vehicles` SET `customer_ID` = NULL WHERE `VIN` = '$VIN'";
+    $sql = "DELETE FROM `vehicles` WHERE VIN = '$VIN'";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Car sold successfully";
+        echo "Car deleted successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "<br> Make sure nobody owns this car.";
     }
 
     $conn->close();
 ?>
-<a href="mycars.php">Return to Customer Page</a>
+<a href="employee.php">Return to Employee Page</a>
 
 </body>
 </html>
